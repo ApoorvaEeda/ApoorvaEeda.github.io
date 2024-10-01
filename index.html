@@ -1,206 +1,1348 @@
-
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
 
-        <link rel="stylesheet" href="assets/css/styles.css">
+<head>
+	<title>Portfolio</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<style>
+		/* Global Styles */
+		* {
+			box-sizing: border-box;
+			color: rgb(24, 33, 83);
+			font-size: 20px;
+		}
 
-        <!-- =====BOX ICONS===== -->
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+		body {
+			font-family: normal normal normal 18px/1.4em avenir-lt-w01_35-light1475496, avenir-lt-w05_35-light, sans-serif;
+			background-color: #f7f7f7;
+			margin: 0;
+		}
 
-        <title>Portfolio website complete</title>
-    </head>
-    <body>
-        <!--===== HEADER =====-->
-        <header class="l-header">
-            <nav class="nav bd-grid">
-                <div>
-                    <a href="#" class="nav__logo">Marlon</a>
-                </div>
+		.project-cards {
+			display: flex;
+			justify-content: space-between; /* Distribute cards evenly */
+			flex-wrap: wrap; /* Wrap cards to the next line if needed */
+		}
+	
+		.project-card {
+			margin-bottom: 20px;
+			border: 1px solid #ccc;
+			padding: 10px;
+			box-sizing: border-box;
+			text-align: center;
+		}
+	
+		.project-card img {
+			max-width: 100%;
+			height: auto;
+			display: block; 
+        	margin: 0 auto;
+		}
 
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
-                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                        <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
-                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                    </ul>
-                </div>
+		.container {
+			/* max-width: 960px; */
+			margin: 0 auto;
+			padding: 20px;
+		}
 
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-menu'></i>
-                </div>
-            </nav>
-        </header>
+		.project-card {
+			background-color: white;
+		}
 
-        <main class="l-main">
-            <!--===== HOME =====-->
-            <section class="home bd-grid" id="home">
-                <div class="home__data">
-                    <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Marlon</span><br> Web Designer</h1>
+		/* Navigation */
+		nav {
+			position: fixed;
+			top: 0;
+			right: 0;
+			padding: 20px;
+			background-color: #ffffff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			width: 100%;
+			text-align: end;
+			z-index: 1;
+		}
 
-                    <a href="#" class="button">Contact</a>
-                </div>
+		nav ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
 
-                <div class="home__social">
-                    <a href="" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
-                    <a href="" class="home__social-icon"><i class='bx bxl-behance' ></i></a>
-                    <a href="" class="home__social-icon"><i class='bx bxl-github' ></i></a>
-                </div>
+		nav ul li {
+			display: inline-block;
+		}
 
-                <div class="home__img">
-                    <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <mask id="mask0" mask-type="alpha">
-                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-                        </mask>
-                        <g mask="url(#mask0)">
-                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-                            <image class="home__blob-img" x="50" y="60" href="assets/img/perfil.png"/>
-                        </g>
-                    </svg>
-                </div>
-            </section>
+		nav ul li a {
+			text-decoration: none;
+			/* color: #333333; */
+			padding: 0px 15px;
+			font-weight: bold;
+		}
 
-            <!--===== ABOUT =====-->
-            <section class="about section " id="about">
-                <h2 class="section-title">About</h2>
+		/* First section with animation and background image */
+		.background-image {
+			background-image: url('https://wallup.net/wp-content/uploads/2015/12/240884-architecture-skyscraper-landscape-urban-modern-sun_rays-building-glass-steel-blue.jpg');
+			background-size: cover;
+			background-position: center;
+			/*height: 500px;
+            Adjust the height as needed */
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding-top: 8%;
+		}
 
-                <div class="about__container bd-grid">
-                    <div class="about__img">
-                        <img src="assets/img/about.jpg" alt="">
-                    </div>
-                    
-                    <div>
-                        <h2 class="about__subtitle">I'am Marlon</h2>
-                        <p class="about__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate cum expedita quo culpa tempora, assumenda, quis fugiat ut voluptates soluta, aut earum nemo recusandae cumque perferendis! Recusandae alias accusamus atque.</p>           
-                    </div>                                   
-                </div>
-            </section>
+		.card-container {
+			display: flex;
+			justify-content: center;
+			/* align-items: flex-start; */
+			animation-name: slide-in;
+			animation-duration: 2s;
+		}
 
-            <!--===== SKILLS =====-->
-            <section class="skills section" id="skills">
-                <h2 class="section-title">Skills</h2>
+		.card {
+			background-color: #ffffff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			/*padding: 20px;*/
+			text-align: left;
+			width: 45%;
+		}
 
-                <div class="skills__container bd-grid">          
-                    <div>
-                        <h2 class="skills__subtitle">Profesional Skills</h2>
-                        <p class="skills__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit optio id vero amet, alias architecto consectetur error eum eaque sit.</p>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxl-html5 skills__icon'></i>
-                                <span class="skills__name">HTML5</span>
-                            </div>
-                            <div class="skills__bar skills__html">
+		.card img {
+			width: 100%;
+			height: auto;
+		}
 
-                            </div>
-                            <div>
-                                <span class="skills__percentage">95%</span>
-                            </div>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxl-css3 skills__icon'></i>
-                                <span class="skills__name">CSS3</span>
-                            </div>
-                            <div class="skills__bar skills__css">
-                                
-                            </div>
-                            <div>
-                                <span class="skills__percentage">85%</span>
-                            </div>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxl-javascript skills__icon' ></i>
-                                <span class="skills__name">JAVASCRIPT</span>
-                            </div>
-                            <div class="skills__bar skills__js">
-                                
-                            </div>
-                            <div>
-                                <span class="skills__percentage">65%</span>
-                            </div>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxs-paint skills__icon'></i>
-                                <span class="skills__name">UX/UI</span>
-                            </div>
-                            <div class="skills__bar skills__ux">
-                                
-                            </div>
-                            <div>
-                                <span class="skills__percentage">85%</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div>              
-                        <img src="assets/img/work3.jpg" alt="" class="skills__img">
-                    </div>
-                </div>
-            </section>
+		@keyframes slide-in {
+			0% {
+				transform: translateX(-100%);
+			}
 
-            <!--===== WORK =====-->
-            <section class="work section" id="work">
-                <h2 class="section-title">Work</h2>
+			100% {
+				transform: translateX(0);
+			}
+		}
 
-                <div class="work__container bd-grid">
-                    <a href="" class="work__img">
-                        <img src="assets/img/work1.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work2.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work3.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work4.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work5.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work6.jpg" alt="">
-                    </a>
-                </div>
-            </section>
+		/* Second section with tag heading, icons, and description */
+		.tag-section {
+			background-color: #f1f1f1;
+			text-align: center;
+			padding: 40px;
+		}
 
-            <!--===== CONTACT =====-->
-            <section class="contact section" id="contact">
-                <h2 class="section-title">Contact</h2>
+		.tag-section h2 {
+			margin-bottom: 20px;
+		}
 
-                <div class="contact__container bd-grid">
-                    <form action="" class="contact__form">
-                        <input type="text" placeholder="Name" class="contact__input">
-                        <input type="mail" placeholder="Email" class="contact__input">
-                        <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
-                        <input type="button" value="Enviar" class="contact__button button">
-                    </form>
-                </div>
-            </section>
-        </main>
+		.icon-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-bottom: 20px;
+		}
 
-        <!--===== FOOTER =====-->
-        <footer class="footer">
-            <p class="footer__title">Marlon</p>
-            <div class="footer__social">
-                <a href="#" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
-            </div>
-            <p class="footer__copy">&#169; Bedimcode. All rigths reserved</p>
-        </footer>
+		.icon-container i {
+			font-size: 24px;
+			color: #333333;
+			margin: 0 10px;
+		}
+
+		.animated-section {
+			opacity: 0;
+			transform: translateY(50px);
+			animation: slide-in 1s forwards;
+		}
+
+		@keyframes slide-in {
+			0% {
+				opacity: 0;
+				transform: translateY(50px);
+			}
+
+			100% {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
 
 
-        <!--===== SCROLL REVEAL =====-->
-        <script src="https://unpkg.com/scrollreveal"></script>
+		/* Third section with experience details */
+		.experience-section {
+			background-color: #ffffff;
+			text-align: center;
+			padding: 40px;
+			position: relative;
+			/* Add position relative for animation */
+		}
 
-        <!--===== MAIN JS =====-->
-        <script src="assets/js/main.js"></script>
-    </body>
+		.experience-line {
+			display: flex;
+			align-items: center;
+			position: relative;
+			/* Add position relative for animation */
+		}
+
+		.experience-line::before,
+		.experience-line::after {
+			content: "";
+			flex: 1;
+			border-bottom: 1px solid #333333;
+			position: absolute;
+			/* Add position absolute for animation */
+			width: 0;
+			/* Initial width set to 0 */
+			transition: width 0.5s;
+			/* Add transition for smooth animation */
+		}
+
+		.experience-name {
+			flex: 1;
+			margin: 10px;
+		}
+
+		.experience-description {
+			flex: 1;
+			margin: 10px;
+			text-align: left;
+		}
+
+		/* Add animation by changing width on hover */
+		.experience-line:hover::before,
+		.experience-line:hover::after {
+			width: 50%;
+			/* Adjust width as per your preference */
+		}
+
+		/* Fourth section with projects */
+		.projects-section {
+			background-color: #f1f1f1;
+			padding: 40px;
+		}
+
+		.projects-container {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			margin-top: 20px;
+		}
+
+		.project-box {
+			flex-basis: calc
+		}
+
+		.project-box {
+			flex-basis: calc(33.33% - 20px);
+			margin-bottom: 20px;
+		}
+
+		.project-image {
+			width: 100%;
+			height: auto;
+		}
+
+		/* Fifth section with education details */
+		.education-section {
+			background-color: #ffffff;
+			text-align: center;
+			padding: 40px;
+		}
+
+		.education-line {
+			display: flex;
+			align-items: center;
+		}
+
+		.education-line::before,
+		.education-line::after {
+			content: "";
+			flex: 1;
+			border-bottom: 1px solid #333333;
+		}
+
+		.education-name {
+			flex: 1;
+			margin: 10px;
+		}
+
+		.education-description {
+			flex: 1;
+			margin: 10px;
+			text-align: left;
+		}
+
+		/* Sixth section with expertise details */
+		.expertise-section {
+			background-color: #f1f1f1;
+			padding: 40px;
+		}
+
+		.expertise-container {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			margin-top: 20px;
+		}
+
+		.expertise-box {
+			flex-basis: calc(33.33% - 20px);
+			margin-bottom: 20px;
+		}
+
+		/* Seventh section with skills */
+		.skills-section {
+			background-color: #ffffff;
+			padding: 40px;
+			text-align: center;
+		}
+
+		.skills-container {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			margin-top: 20px;
+		}
+
+		.skills-box {
+			flex-basis: calc(33.33% - 20px);
+			margin-bottom: 20px;
+		}
+
+		.skills-box p {
+			background-color: #333333;
+			color: #ffffff;
+			padding: 10px;
+			margin: 0;
+		}
+
+		/* Eighth section with contact form */
+		.contact-section {
+			background-color: #f1f1f1;
+			padding: 40px;
+			text-align: center;
+		}
+
+		.contact-form {
+			max-width: 400px;
+			margin: 0 auto;
+		}
+
+		.contact-form label {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		.contact-form input,
+		.contact-form textarea {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 20px;
+		}
+
+		.contact-form button {
+			padding: 10px 20px;
+			background-color: #333333;
+			color: #ffffff;
+			border: none;
+			cursor: pointer;
+		}
+
+		.contact-form button:hover {
+			background-color: #555555;
+		}
+
+		.align_left {
+			padding: 6%;
+		}
+
+		.head,
+		.tail {
+			color: rgb(24, 33, 83);
+			margin-block-start: 0em;
+		}
+
+		.head {
+			font-weight: bold;
+			margin-block-end: 0em;
+		}
+
+		.padding_top {
+			padding-top: 10%;
+		}
+
+		.grey_back {
+			background-color: lightgrey;
+		}
+
+		.navbar {
+			background-color: darkslateblue;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 60px;
+			width: 53%;
+			margin: auto;
+		}
+
+		.navbar a {
+			text-decoration: none;
+			color: #ffffff;
+			margin: 0 10px;
+			font-size: 24px;
+			opacity: 0;
+			transition: opacity 0.5s ease;
+		}
+
+		.navbar a.hover {
+			opacity: 0;
+		}
+
+		.navbar a {
+			opacity: 1;
+		}
+
+		.text {
+			text-align: center;
+			width: 35%;
+			margin: auto;
+			padding-top: 5%;
+			padding-bottom: 5%;
+			line-height: 1.5;
+		}
+
+		.experience {
+			background-color: #ffffff;
+			display: flex;
+			align-items: flex-start;
+			text-align: center;
+		}
+
+		.experience .left {
+			width: 50%;
+			text-align: right;
+			padding-right: 2%;
+		}
+
+		.experience .left .title {
+			font-weight: bold;
+			font-size: 18px;
+		}
+
+		.experience .left .date {
+			color: gray;
+		}
+
+		.experience .right {
+			width: 50%;
+			position: relative;
+			text-align: left;
+		}
+
+		.experience .right::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0%;
+			width: 1px;
+			background-color: #333333;
+			transform: translateX(-50%);
+		}
+
+		.experience .right .role {
+			margin-left: 20px;
+			width: 70%;
+			line-height: 1.5;
+		}
+
+		.center_text {
+			text-align: center;
+		}
+
+		.period {
+			text-align: center;
+			margin-block-start: 0em;
+			margin-block-end: 0em;
+			background-color: #ffffff;
+		}
+
+		.section.grey_back {
+			background-color: #f1f1f1;
+			padding: 20px;
+		}
+
+		.center_text {
+			text-align: center;
+		}
+
+		.contact-content {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+		}
+
+		.contact-form {
+			flex: 1;
+		}
+
+		.contact-form label {
+			display: block;
+			margin-bottom: 5px;
+		}
+
+		.contact-form input,
+		.contact-form textarea {
+			width: 100%;
+			padding: 5px;
+			margin-bottom: 10px;
+		}
+
+		.contact-form button {
+			background-color: rgb(24, 33, 83);
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			cursor: pointer;
+		}
+
+		.contact-links {
+			flex: 1;
+		}
+
+		.blue-link {
+			color: rgb(24, 33, 83);
+			text-decoration: none;
+		}
+
+		.blue-link:hover {
+			text-decoration: underline;
+		}
+
+		.contact-form button {
+			display: block;
+			margin: 0 auto;
+			background-color: rgb(24, 33, 83);
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			cursor: pointer;
+		}
+
+		.back_white {
+			background-color: #ffffff;
+			padding-top: 2%;
+		}
+
+		.section.skills-section {
+			background-image: url('https://wallup.net/wp-content/uploads/2015/12/240884-architecture-skyscraper-landscape-urban-modern-sun_rays-building-glass-steel-blue.jpg');
+			background-size: cover;
+			padding: 40px;
+			font-family: avenir-lt-w01_85-heavy1475544, sans-serif;
+		}
+
+		.skills-heading {
+			background-color: rgb(24, 33, 83);
+			padding: 20px;
+			text-align: center;
+			color: white;
+		}
+
+		.skills-content {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			margin-top: 40px;
+		}
+
+		.skill-column {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			flex-basis: 50%;
+		}
+
+		.skill-cell {
+			background-color: rgba(255, 255, 255, 0.7);
+			padding: 20px;
+			margin-bottom: 20px;
+			width: 50%;
+		}
+
+		.skill-cell:last-child {
+			margin-bottom: 0;
+		}
+
+		.section#expertise {
+			padding: 40px;
+		}
+
+		#expertise h2 {
+			text-align: center;
+		}
+
+		.expertise-content {
+			display: flex;
+			justify-content: space-between;
+			margin-top: 40px;
+			flex-wrap: wrap;
+		}
+
+		.expertise-item {
+			flex-basis: 30%;
+			margin-bottom: 20px;
+		}
+
+		.expertise-item:last-child {
+			margin-bottom: 0;
+		}
+
+		.section#projects {
+			padding-top: 5%;
+			padding-bottom: 10%;
+		}
+
+		#projects h2 {
+			text-align: center;
+		}
+
+		.projects-content {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 40px;
+		}
+
+		.projects-content a {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 14px 13px;
+			width: 346px;
+			height: 200px;
+			/* Adjust the height as needed */
+			background-color: white;
+		}
+
+		.projects-content img {
+			width: 190px;
+			max-width: 100%;
+			height: auto;
+			object-fit: contain;
+			display: block;
+		}
+
+		.section#recent {
+			padding: 40px;
+			background: #f1f1f1;
+		}
+
+		#recent h2 {
+			text-align: center;
+			color: #333;
+		}
+
+		.recent-work-content {
+			display: flex;
+			justify-content: center;
+			margin-top: 40px;
+		}
+
+		.project {
+			align-items: center;
+			background: #fff;
+			border-radius: 6px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			padding: 20px;
+			width: 100%;
+			margin-bottom: 30px;
+			text-align: center;
+		}
+
+
+		.project img {
+			height: auto;
+			margin-right: 20px;
+			border-radius: 4px;
+			padding: 5%;
+		}
+
+		.project-description {
+			color: #333;
+			font-size: medium !important;
+		}
+
+		.project-description p:last-child {
+			margin-bottom: 0;
+		}
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+
+		<!-- Nav bar to navigate to different sections -->
+		<div>
+
+			<script>
+				const menuItems = [
+					{
+						'text': 'Experience',
+						'link': '#experience'
+					},
+					{
+						'text': 'Projects',
+						'link': '#projects'
+					},
+					{
+						'text': 'Recent work',
+						'link': '#recent'
+					},
+					{
+						'text': 'Education',
+						'link': '#education'
+					},
+					{
+						'text': 'Skills',
+						'link': '#skills'
+					},
+					{
+						'text': 'Expertise',
+						'link': '#expertise'
+					},
+					{
+						'text': 'Contact',
+						'link': '#contact'
+					}
+				];
+
+				const nav = document.createElement('nav');
+				const ul = document.createElement('ul');
+
+				menuItems.forEach(item => {
+					const li = document.createElement('li');
+					const a = document.createElement('a');
+					a.href = item.link;
+					a.textContent = item.text;
+					li.appendChild(a);
+					ul.appendChild(li);
+				});
+
+				nav.appendChild(ul);
+				document.body.appendChild(nav);
+			</script>
+
+
+
+		</div>
+
+
+		<!-- section 1 with basic user information -->
+		<div class="section background-image">
+			<div class="card-container ">
+				<div class="card">
+					<img src="https://drive.google.com/uc?id=1EjiKXzOD4NtoBph3DvEGyEAWZO-TabnB" alt="Your Image"
+						width="200px">
+				</div>
+				<div class="card align_left">
+
+					<h2>Gowthami Duggineni</h2>
+					<h1>SOFTWARE ENGINEER</h3>
+
+						<p class="head padding_top">Phone:</p>
+
+						<p class="tail">404-940-6627</p>
+
+						<p class="head padding_top">Email:</p>
+
+						<p class="tail">dugginenigowthami@gmail.com</p>
+
+						<p class="head padding_top">Address:</p>
+
+						<p class="tail">486 Lindbergh PL NE, Atlanta, GA</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- section 1 with link to github and linkedIn -->
+		<div class="section grey_back animated-section">
+			<div class="navbar">
+				<a href="https://www.linkedin.com/in/gowthami-duggineni/"><i class="fab fa-linkedin"></i></a>
+				<a href="https://github.com/Gowthamiiiii?tab=repositories"><i class="fab fa-github"></i></a>
+			</div>
+
+			<!-- basic intro -->
+			<div class="text">
+				<h2>Hello! I am Gowthami</h2>
+
+
+				<p>Experienced full-stack web developer with expertise in JavaScript frameworks (Angular, React, Vue)
+					and a proven track record of delivering complex projects.
+					Skilled in API creation and integration (GraphQL, Spring MVC)
+					and adept at problem-solving and root cause analysis.
+					Passionate about innovative solutions and eager to contribute to
+					future projects.
+				<p>
+			</div>
+		</div>
+
+		<!-- section 2 with experience -->
+
+		<div class="section back_white" id="experience">
+			<script>
+				const experiences = [
+					{
+						"date": "2022 - Present",
+						"title": "Graduate Research Assistant",
+						"head": "Georgia State University",
+						"description": " Collaborated with University health department to build an Angular 13 web application using RxJS Libraries and Promises for monitoring patient health. Incorporated an auth service for access control and data protection.\n\
+Built a patient health trend retrieval feature using GraphQL, optimizing querying performance and minimizing data overfetching. Resulted in a significant improvement in application efficiency and user experience.\n\
+Shaped and engineered a CI/CD pipeline, utilizing YAML Script for automated testing, building, and daily product releases. This fine-tuned the execution process and ensured a consistent environment.\n\
+Attained 95% application accuracy by employing polyfills and progressive enhancement techniques, effectively reducing inconsistency in layout and formatting issues across multiple browsers.\n\
+Received appreciation for best research idea in the field of computer science, [2022]."
+					},
+					{
+						"date": "2019 - 2022",
+						"title": "Application Developer",
+						"head": "Tata Consultancy Services",
+						"description": "Designed and developed appealing user interfaces for clients such as ADM Prime and Tata Motors using JavaScript,\n\
+						Angular 9 and implemented Orders Management Systems microservice with REST API.\n\
+						Integrated personalized vehicle selection and pricing features into the Tata Motors Application, resulting in a streamlined\n\
+						and transparent purchasing process for customers and a significant increase in profit by 75%.\n\
+						Achieved Application Security using HTTP encryption, regular vulnerability assessments and input validation that\n\
+						ensures safety in payment processing.\n\
+						Deployed AEM for content management, utilizing HTL, LESS, and jQuery to meet business requirements. Doubled\n\
+						product sales by identifying individual customer interests through personalized content authoring.\n\
+						Actively engaged with QA team, used Jasmine and Karma that resulted in delivery of high-quality software.\n\
+						Conducted code reviews and deployed reusable components with binding to boost team productivity by 70%.\n\
+						"
+					},
+					{
+						"date": "2018 - 2019",
+						"title": "Software Engineer Intern",
+						"head": "Indian Space Research Organization",
+						"description": "Created a data portal with ReactJS, Java, and Spring for liquid propellant usage management in rockets and satellites\n\
+						and Processed Portal XML data using generator functions, that lowered 20% average process time.\n\
+						Utilized React Hooks and React Routing to improve code reusability, optimizing the design and in efficient data\n\
+						rendering and an impressive 80% increase in application performance.\n\
+						Resolved bugs with strict adherence to Service Level Agreement (S.L.A) and improved efficiency by 85%.\n\
+						Employed batch insertion techniques, reducing MongoDB’s average data load time from 5 hours to just 1 hour, and\n\
+						addressed performance issues by utilizing MongoDB profiler"
+					}
+				];
+
+				const experienceDiv = document.createElement('div');
+				experienceDiv.classList.add('section', 'back_white');
+
+				const h2 = document.createElement('h2');
+				h2.classList.add('center_text');
+				h2.textContent = 'Experience';
+				experienceDiv.appendChild(h2);
+
+				const periodP = document.createElement('p');
+				periodP.classList.add('period');
+				periodP.textContent = '\u2022';
+				experienceDiv.appendChild(periodP);
+
+				experiences.forEach(experience => {
+					const experienceDivInner = document.createElement('div');
+					experienceDivInner.classList.add('experience');
+
+					const leftDiv = document.createElement('div');
+					leftDiv.classList.add('left');
+
+					const dateDiv = document.createElement('div');
+					dateDiv.classList.add('date');
+					dateDiv.textContent = experience.date;
+					leftDiv.appendChild(dateDiv);
+
+					const titleDiv = document.createElement('div');
+					titleDiv.classList.add('title');
+					titleDiv.textContent = experience.title;
+					leftDiv.appendChild(titleDiv);
+
+					experienceDivInner.appendChild(leftDiv);
+
+					const rightDiv = document.createElement('div');
+					rightDiv.classList.add('right');
+
+					const roleDiv = document.createElement('div');
+					roleDiv.classList.add('role');
+
+					const headP = document.createElement('p');
+					headP.classList.add('head');
+					headP.textContent = experience.head;
+					roleDiv.appendChild(headP);
+
+					const descriptionP = document.createElement('p');
+					descriptionP.textContent = experience.description;
+					roleDiv.appendChild(descriptionP);
+
+					rightDiv.appendChild(roleDiv);
+					experienceDivInner.appendChild(rightDiv);
+
+					experienceDiv.appendChild(experienceDivInner);
+				});
+
+				const periodP2 = document.createElement('p');
+				periodP2.classList.add('period');
+				periodP2.textContent = '\u2022';
+				experienceDiv.appendChild(periodP2);
+
+				const parentElement = document.getElementById('experience');
+				parentElement.parentNode.insertBefore(experienceDiv, parentElement.nextSibling);
+			</script>
+		</div>
+
+
+
+
+		<!-- project section -->
+
+		<div class="section" id="projects">
+			<h2 class="center_text">PROJECTS</h2>
+			<div class="projects-content">
+				<div class="project-cards">
+					<script>
+						const projects = [
+							{
+								"title": "Grip Strength Measurement",
+								"url": "https://github.com/Gowthamiiiii/GripStrength",
+								"image": "https://i5.walmartimages.com/asr/3c0c23e9-30e8-4ded-b77a-46bda7612afb.f3b56b7276821af08c099e9802769005.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff"
+							},
+							{
+								"title": "let's Stop and Shop",
+								"url": "https://github.com/Gowthamiiiii/Shopping_App",
+								"image": "https://s3.amazonaws.com/kajabi-storefronts-production/blogs/2110/images/8dZewRiQeWUwvO3oUuPm_mandalay-bay-retail-resort-shops-shopping-bags.jpg"
+							},
+							{
+								"url": "https://github.com/Gowthamiiiii/CameraApp",
+								"image": "https://th.bing.com/th/id/OIP.C28Jhvka6s2NzQVp2_8uAwHaFF?pid=ImgDet&rs=1",
+								"title": "Video surveillance System"
+							},
+							{
+								"url": "https://github.com/Gowthamiiiii/React-LeaderBoard-App",
+								"image": "https://taupotennis.org.nz/wp-content/uploads/2021/01/4.png",
+								"title": "Leader Board"
+							},
+							{
+								"url": "https://github.com/Gowthamiiiii/Weather",
+								"image": "https://th.bing.com/th/id/R.954295933d49026192be125aff99810b?rik=DtWE9YtdtPXffQ&pid=ImgRaw&r=0",
+								"title": "Weather Data Analysis"
+							},
+							{
+								"url": "https://github.com/orgs/WildFireSimulationTeamSIMSlab/teams/frontend",
+								"image": "https://thumbs.dreamstime.com/b/fire-isolated-white-background-14143222.jpg",
+								"title": "Wild Fire"
+							}
+						];
+
+						const projectCards = document.createElement('div');
+						projectCards.classList.add('project-cards');
+
+						projects.forEach(project => {
+							const card = document.createElement('div');
+							card.classList.add('project-card');
+
+							const title = document.createElement('h3');
+							title.textContent = project.title;
+
+							const link = document.createElement('a');
+							link.href = project.url;
+
+							const image = document.createElement('img');
+							image.src = project.image;
+							image.alt = project.title;
+
+							link.appendChild(image);
+							card.appendChild(link);
+							card.appendChild(title);
+
+							projectCards.appendChild(card);
+						});
+
+						document.querySelector('.projects-content').appendChild(projectCards);
+					</script>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<!-- Recent Work
+
+		<div class="section" id="recent">
+			<h2 class="center_text">RECENT WORK</h2>
+			<div class="recent-work-content">
+				<script>
+					const project = {
+						"image": "https://drive.google.com/uc?id=1ncguK2IR-URw00JqWFIDkn1BeYhF1hlI",
+						"title": "In-Home Hand Rehabilitation Project",
+						"description": [
+							"This project involved developing a software solution for patients undergoing in-home hand rehabilitation activities. The main objective was to quantify the grip strength of the patients.",
+							"The motivation behind the project was to monitor the patients daily activities and track any improvements in their grip strength over time.",
+							"As the sole developer, I started by researching existing works and brainstorming feasible solutions. Initially, I explored designing a sensor as part of my IoT research, but later discovered the FSR (Force-Sensing Resistor) sensor that perfectly suited our requirements. I came up with the idea of using the FSR sensor to measure the pressure applied by the patient, which would be mapped against the brightness of an LED (V = IR equation). The FSR sensor's resistance decreases with increasing pressure, resulting in higher current flow and brightness.",
+							"I designed an end-to-end application using JavaScript to capture and record the pressure and brightness values from the input. The backend image processing handled the mapping of pressure and brightness with epoch time. The data was stored in a database, from which I fetched the required information. The application provided two logins: one for the practitioner and another for the patient. The practitioner had access to monitor data and check if a patient's strength was below the threshold, while the patient could view their historical data displayed in a graph for comparison. GraphQL was used for performing mutations and queries on the database. Data visualization and analysis were performed on the patient data for display in the frontend."
+						]
+					};
+
+					const recentWorkContent = document.createElement('div');
+					recentWorkContent.classList.add('recent-work-content');
+
+					const projectDiv = document.createElement('div');
+					projectDiv.classList.add('project');
+
+					const image = document.createElement('img');
+					image.src = project.image;
+					image.alt = 'Project Image';
+					projectDiv.appendChild(image);
+
+					const projectDescription = document.createElement('div');
+					projectDescription.classList.add('project-description');
+
+					const title = document.createElement('h3');
+					title.textContent = project.title;
+					projectDescription.appendChild(title);
+
+					project.description.forEach(paragraph => {
+						const p = document.createElement('p');
+						p.textContent = paragraph;
+						projectDescription.appendChild(p);
+					});
+
+					projectDiv.appendChild(projectDescription);
+					recentWorkContent.appendChild(projectDiv);
+
+					document.getElementById('recent').appendChild(recentWorkContent);
+				</script>
+			</div>
+		</div> -->
+
+
+
+
+		<!-- education section same structure as experience -->
+
+		<div class="section back_white" id="education">
+			<script>
+
+				function resolve_promises(promises) {
+					const counter_promises = 0;
+					const output = [];
+					return new promise((resolve, reject) => {
+						promises.forEach((promise, i) => {
+							promise.then((value) => {
+								output[i] = value;
+								counter_promises += 1;
+								if (counter_promises == promises.length) {
+									resolve(output);
+								}
+							}
+							)
+								.catch(reject);
+						})
+					})
+				}
+				const education = [
+					{
+						"date": "2022 - 2023",
+						"title": "Master's Degree",
+						"institution": "Georgia State University",
+						"description": [
+							"As a Master's student in Computer Science at Georgia State University, I've honed my technical skills, collaborated on diverse projects, and gained valuable industry insights, shaping me into a proficient software engineer."
+						]
+					},
+					{
+						"date": "2015 - 2019",
+						"title": "Bachelor's Degree",
+						"institution": "Acharya Nagarjuna University",
+						"description": [
+							"I earned my Bachelor of Technology in Information Technology at R.V.R & J.C College of Engineering, Guntur. This foundational experience allowed me to develop strong technical skills and fostered my passion for software development and problem-solving."
+						]
+					}
+				];
+
+				const educationSection = document.createElement('div');
+				educationSection.classList.add('section', 'back_white');
+
+				const h2 = document.createElement('h2');
+				h2.classList.add('center_text');
+				h2.textContent = 'Education';
+				educationSection.appendChild(h2);
+
+				const periodP = document.createElement('p');
+				periodP.classList.add('period');
+				periodP.textContent = '\u2022';
+				educationSection.appendChild(periodP);
+
+				education.forEach(entry => {
+					const experienceDiv = document.createElement('div');
+					experienceDiv.classList.add('experience');
+
+					const leftDiv = document.createElement('div');
+					leftDiv.classList.add('left');
+
+					const dateDiv = document.createElement('div');
+					dateDiv.classList.add('date');
+					dateDiv.textContent = entry.date;
+					leftDiv.appendChild(dateDiv);
+
+					const titleDiv = document.createElement('div');
+					titleDiv.classList.add('title');
+					titleDiv.textContent = entry.title;
+					leftDiv.appendChild(titleDiv);
+
+					experienceDiv.appendChild(leftDiv);
+
+					const rightDiv = document.createElement('div');
+					rightDiv.classList.add('right');
+
+					const roleDiv = document.createElement('div');
+					roleDiv.classList.add('role');
+
+					const headP = document.createElement('p');
+					headP.classList.add('head');
+					headP.textContent = entry.institution;
+					roleDiv.appendChild(headP);
+
+					entry.description.forEach(paragraph => {
+						const p = document.createElement('p');
+						p.textContent = paragraph;
+						roleDiv.appendChild(p);
+					});
+
+					rightDiv.appendChild(roleDiv);
+					experienceDiv.appendChild(rightDiv);
+
+					educationSection.appendChild(experienceDiv);
+				});
+
+				const periodP2 = document.createElement('p');
+				periodP2.classList.add('period');
+				periodP2.textContent = '\u2022';
+				educationSection.appendChild(periodP2);
+
+				document.getElementById('education').appendChild(educationSection);
+			</script>
+		</div>
+
+
+
+		<!-- Skills are mentioned here -->
+
+		<div class="section back_white" id="education">
+			<script>
+				const educationData = [
+					{
+						"date": "2022 - 2023",
+						"title": "Master's Degree",
+						"institution": "Georgia State University",
+						"description": [
+							"As a Master's student in Computer Science at Georgia State University, I've honed my technical skills, collaborated on diverse projects, and gained valuable industry insights, shaping me into a proficient software engineer."
+						]
+					},
+					{
+						"date": "2015 - 2019",
+						"title": "Bachelor's Degree",
+						"institution": "Acharya Nagarjuna University",
+						"description": [
+							"I earned my Bachelor of Technology in Information Technology at R.V.R & J.C College of Engineering, Guntur. This foundational experience allowed me to develop strong technical skills and fostered my passion for software development and problem-solving."
+						]
+					}
+				];
+
+				const educationSectionDiv = document.createElement('div');
+				educationSectionDiv.classList.add('section', 'back_white');
+
+				const h2Element = document.createElement('h2');
+				h2Element.classList.add('center_text');
+				h2Element.textContent = 'Education';
+				educationSectionDiv.appendChild(h2Element);
+
+				const periodPElement = document.createElement('p');
+				periodPElement.classList.add('period');
+				periodPElement.textContent = '\u2022';
+				educationSectionDiv.appendChild(periodPElement);
+
+				educationData.forEach(entry => {
+					const experienceDiv = document.createElement('div');
+					experienceDiv.classList.add('experience');
+
+					const leftDiv = document.createElement('div');
+					leftDiv.classList.add('left');
+
+					const dateDiv = document.createElement('div');
+					dateDiv.classList.add('date');
+					dateDiv.textContent = entry.date;
+					leftDiv.appendChild(dateDiv);
+
+					const titleDiv = document.createElement('div');
+					titleDiv.classList.add('title');
+					titleDiv.textContent = entry.title;
+					leftDiv.appendChild(titleDiv);
+
+					experienceDiv.appendChild(leftDiv);
+
+					const rightDiv = document.createElement('div');
+					rightDiv.classList.add('right');
+
+					const roleDiv = document.createElement('div');
+					roleDiv.classList.add('role');
+
+					const headP = document.createElement('p');
+					headP.classList.add('head');
+					headP.textContent = entry.institution;
+					roleDiv.appendChild(headP);
+
+					entry.description.forEach(paragraph => {
+						const p = document.createElement('p');
+						p.textContent = paragraph;
+						roleDiv.appendChild(p);
+					});
+
+					rightDiv.appendChild(roleDiv);
+					experienceDiv.appendChild(rightDiv);
+
+					educationSectionDiv.appendChild(experienceDiv);
+				});
+
+				const periodPElement2 = document.createElement('p');
+				periodPElement2.classList.add('period');
+				periodPElement2.textContent = '\u2022';
+				educationSectionDiv.appendChild(periodPElement2);
+
+				document.getElementById('education').appendChild(educationSectionDiv);
+			</script>
+		</div>
+
+
+		<div class="section skills-section" id="skills">
+			<div class="skills-heading">
+				<h2 class="center_text" style="color: white;">SKILLS</h2>
+			</div>
+			<div class="skills-content">
+				<div class="skill-column">
+					<script>
+						const skills = [
+							{
+								"title": "Programming Languages",
+								"items": ["Python", "Java", "C"]
+							},
+							{
+								"title": "Web Technologies",
+								"items": ["JavaScript", "Angular", "React", "Vue", "jQuery", "TypeScript", "PHP", "AEM"]
+							},
+							{
+								"title": "Frameworks and Libraries",
+								"items": ["GraphQL", "Spring MVC"]
+							}
+						];
+
+						skills.forEach(skillCategory => {
+							const skillCell = document.createElement('div');
+							skillCell.classList.add('skill-cell');
+							const p = document.createElement('p');
+							p.textContent = `${skillCategory.title}: ${skillCategory.items.join(', ')}`;
+							skillCell.appendChild(p);
+							document.querySelector('.skill-column:first-child').appendChild(skillCell);
+						});
+					</script>
+				</div>
+				<div class="skill-column">
+					<script>
+						const additionalSkills = {
+							"Version Control and Project Management": ["Git", "Azure DevOps", "Docker", "Jira"],
+							"Databases": ["Spark", "MySQL", "MongoDB", "Oracle"],
+							"Data Analysis and Computer Vision": ["Pandas", "Matplotlib", "Computer Vision", "Raspberry Pi", "Image Processing"]
+						};
+
+						for (const category in additionalSkills) {
+							const skills = additionalSkills[category];
+							const skillCell = document.createElement('div');
+							skillCell.classList.add('skill-cell');
+							const p = document.createElement('p');
+							p.textContent = `${category}: ${skills.join(', ')}`;
+							skillCell.appendChild(p);
+							document.querySelector('.skill-column:last-child').appendChild(skillCell);
+						}
+					</script>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- Expertise (good at) are mentioned here -->
+		<div class="section" id="expertise">
+			<h2 class="center_text">EXPERTISE</h2>
+			<div class="expertise-content">
+				<script>
+					const expertiseItems = [
+						{
+							"title": "Full-Stack Development",
+							"description": "Experienced in developing web applications using a variety of technologies and frameworks."
+						},
+						{
+							"title": "Software Engineering",
+							"description": "Proficient in software engineering principles and practices, including design patterns, testing, debugging, and version control."
+						},
+						{
+							"title": "Problem Solving",
+							"description": "Effective at analyzing complex technical problems and developing creative solutions."
+						}
+					];
+
+					const expertiseContent = document.createElement('div');
+					expertiseContent.classList.add('expertise-content');
+
+					expertiseItems.forEach(item => {
+						const expertiseItem = document.createElement('div');
+						expertiseItem.classList.add('expertise-item');
+
+						const h3 = document.createElement('h3');
+						h3.textContent = item.title;
+						expertiseItem.appendChild(h3);
+
+						const p = document.createElement('p');
+						p.textContent = item.description;
+						expertiseItem.appendChild(p);
+
+						expertiseContent.appendChild(expertiseItem);
+					});
+
+					document.getElementById('expertise').appendChild(expertiseContent);
+				</script>
+			</div>
+		</div>
+
+
+	</div>
+
+	<!-- contact section with a form -->
+	<div class="section grey_back" id="contact">
+		<div class="section grey_back" id="contact">
+			<h2 class="center_text">Contact</h2>
+			<div class="contact-content">
+				<form class="contact-form" method="post" name="emailContact">
+					<label for="name">Name:</label>
+					<input type="text" id="name" name="name">
+					<label for="email">Email:</label>
+					<input type="email" id="email" name="email">
+					<label for="message">Message:</label>
+					<textarea id="message" name="message"></textarea>
+					<button type="submit" name="send" value="submit">Submit</button>
+				</form>
+			</div>
+		</div>
+
+	</div>
+
+	?>
+
+
+	</div>
+
+</body>
+
 </html>
