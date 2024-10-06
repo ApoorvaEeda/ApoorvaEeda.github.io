@@ -20,10 +20,12 @@
 
 		.project-cards {
 			display: flex;
-			justify-content: space-between; /* Distribute cards evenly */
-			flex-wrap: wrap; /* Wrap cards to the next line if needed */
+			justify-content: space-between;
+			/* Distribute cards evenly */
+			flex-wrap: wrap;
+			/* Wrap cards to the next line if needed */
 		}
-	
+
 		.project-card {
 			margin-bottom: 20px;
 			border: 1px solid #ccc;
@@ -31,12 +33,12 @@
 			box-sizing: border-box;
 			text-align: center;
 		}
-	
+
 		.project-card img {
 			max-width: 100%;
 			height: auto;
-			display: block; 
-        	margin: 0 auto;
+			display: block;
+			margin: 0 auto;
 		}
 
 		.container {
@@ -711,6 +713,10 @@
 						'link': '#expertise'
 					},
 					{
+						'text': 'Achievements',
+						'link': '#achieve'
+					},
+					{
 						'text': 'Contact',
 						'link': '#contact'
 					}
@@ -741,8 +747,7 @@
 		<div class="section background-image">
 			<div class="card-container ">
 				<div class="card">
-					<img src="img1.jpg" alt="Your Image"
-						width="200px">
+					<img src="img1.jpg" alt="Your Image" width="200px">
 				</div>
 				<div class="card align_left">
 
@@ -776,13 +781,15 @@
 				<h2>Hello! I am Apoorva Eeda</h2>
 
 
-				<p>Currently pursuing  Master's in Information Technology at Arizona State university with a  
-					distinguished  experience of <strong>4.5 years as a Software Engineer</strong>, specializing in front  end and 
-					backend development, database systems and cloud technologies. 
+				<p>Currently pursuing Master's in Information Technology at Arizona State university with a
+					distinguished experience of <strong>4.5 years as a Software Engineer</strong>, specializing in front
+					end and
+					backend development, database systems and cloud technologies.
 					Skilled in API creation and integration (.NetCore,Java,RestAPI,Python)
-					and adept at problem-solving and root cause analysis.More creative and interested in developing the fronend of an application 
+					and adept at problem-solving and root cause analysis.More creative and interested in developing the
+					fronend of an application
 					with latest technologies like ReactJS,Angular,Javascript,HTML,CSS
-					I believe my background equips me to add value to the company ,and the products 
+					I believe my background equips me to add value to the company ,and the products
 					that I build. I would love to talk more about my experience if you scroll down
 				<p>
 			</div>
@@ -931,6 +938,11 @@
 								// "url": "https://github.com/Gowthamiiiii/React-LeaderBoard-App",
 								"image": "Retailimg.png",
 								"title": "Retail Sector"
+							},
+							{
+								// "url": "https://github.com/Gowthamiiiii/React-LeaderBoard-App",
+								"image": "enterprise.png",
+								"title": "Enterprise Sector"
 							},
 							{
 								"url": "https://github.com/ApoorvaEeda/POCProject",
@@ -1136,7 +1148,7 @@
 		<div class="section back_white" id="education">
 			<script>
 				const educationData = [
-				{
+					{
 						"date": "2023 - 2024",
 						"title": "Master's Degree",
 						"institution": "Arizona State University",
@@ -1229,15 +1241,15 @@
 						const skills = [
 							{
 								"title": "Programming Languages",
-								"items": [" C#", ".Net", "C", "Java", "Python", "Data Structures", "C++" ,"Rest API"]
+								"items": [" C#", ".Net", "C", "Java", "Python", "Data Structures", "C++", "Rest API"]
 							},
 							{
 								"title": "Web Technologies",
-								"items": ["JavaScript", "Angular", "ReactJS", "Vue", "jQuery", "TypeScript", "NodeJS", "CSS3","HTML5"]
+								"items": ["JavaScript", "Angular", "ReactJS", "Vue", "jQuery", "TypeScript", "NodeJS", "CSS3", "HTML5"]
 							},
 							{
 								"title": "Cloud Technologies and Libraries",
-								"items": [ "Docker", "Kubernetes", "AWS", "Microsoft Azure", "ML","Devops" ]
+								"items": ["Docker", "Kubernetes", "AWS", "Microsoft Azure", "ML", "Devops"]
 							}
 						];
 
@@ -1255,8 +1267,8 @@
 					<script>
 						const additionalSkills = {
 							"Version Control and Project Management": ["Git", "Azure DevOps", "Docker", "Jira"],
-							"Databases and OS": ["NoSQL", "MySQL", "MongoDB","PostgreSQL", "Oracle DB","Windows","MacOS"],
-							"Data Analysis and Computer Vision": ["Pandas", "Tableau ", "NumPy", "Spark","Jupyter", "Computer Vision", "Data mining", "Data cleaning","Data modeling & warehousing","Machine Learning"],
+							"Databases and OS": ["NoSQL", "MySQL", "MongoDB", "PostgreSQL", "Oracle DB", "Windows", "MacOS"],
+							"Data Analysis and Computer Vision": ["Pandas", "Tableau ", "NumPy", "Spark", "Jupyter", "Computer Vision", "Data mining", "Data cleaning", "Data modeling & warehousing", "Machine Learning"],
 							// "Tools": [ "VSCode", "Visual Studio", "Anaconda",  "GitHub", "PyTorch", "Microsoft Office(Word, Excel, PowerPoint, Access, Outlook)", "Figma" ],
 						};
 
@@ -1318,11 +1330,12 @@
 				</script>
 			</div>
 		</div>
+
 		<div class="section" id="achieve">
 			<h2 class="center_text">ACHIEVEMENTS</h2>
 			<div class="achieve-content">
 				<script>
-					const acheivementItems = [
+					const achieveItems = [
 						{
 							"title": "Best Outgoing Girl Student",
 							"description": "Recognized as the Best Outgoing Student in my Bachelor's program at [University Name], honoring my commitment and contributions to extracurricular activities, including dance and sports, while maintaining strong academic performance."
@@ -1340,25 +1353,26 @@
 					const achieveContent = document.createElement('div');
 					achieveContent.classList.add('achieve-content');
 
-					acheivementItems.forEach(item => {
-						const acheivementItem = document.createElement('div');
-						acheivementItem.classList.add('achieve-item');
+					achieveItems.forEach(item => {
+						const achieveItem = document.createElement('div');
+						achieveItem.classList.add('achieve-item');
 
 						const h3 = document.createElement('h3');
 						h3.textContent = item.title;
-						acheivementItem.appendChild(h3);
+						achieveItem.appendChild(h3);
 
 						const p = document.createElement('p');
 						p.textContent = item.description;
-						acheivementItem.appendChild(p);
+						achieveItem.appendChild(p);
 
-						acheivementItems.appendChild(acheivementItem);
+						achieveContent.appendChild(achieveItem);
 					});
 
 					document.getElementById('achieve').appendChild(achieveContent);
 				</script>
 			</div>
 		</div>
+
 
 	</div>
 
