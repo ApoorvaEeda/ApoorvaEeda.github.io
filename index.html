@@ -757,9 +757,9 @@
 
 						<p class="tail">apoorvaeeda@gmail.com</p>
 
-						<p class="head padding_top">Address:</p>
+						<p class="head padding_top">Graduating:</p>
 
-						<p class="tail">1720E Broadway Road,#3200,Tempe,Arizona,85282</p>
+						<p class="tail">December 2024 </p>
 				</div>
 			</div>
 		</div>
@@ -777,7 +777,7 @@
 
 
 				<p>Currently pursuing  Master's in Information Technology at Arizona State university with a  
-					distinguished  experience of 4 years as a Software Engineer, specializing in front  end and 
+					distinguished  experience of <strong>4.5 years as a Software Engineer</strong>, specializing in front  end and 
 					backend development, database systems and cloud technologies. 
 					Skilled in API creation and integration (.NetCore,Java,RestAPI,Python)
 					and adept at problem-solving and root cause analysis.More creative and interested in developing the fronend of an application 
@@ -930,12 +930,12 @@
 							{
 								// "url": "https://github.com/Gowthamiiiii/React-LeaderBoard-App",
 								"image": "Retailimg.png",
-								"title": "Reatail Sector"
+								"title": "Retail Sector"
 							},
 							{
 								"url": "https://github.com/ApoorvaEeda/POCProject",
 								"image": "Tradingimg.png",
-								"title": "TopHundredTrades-Project"
+								"title": "Top Hundred Trades - Project"
 							}
 						];
 
@@ -1257,7 +1257,7 @@
 							"Version Control and Project Management": ["Git", "Azure DevOps", "Docker", "Jira"],
 							"Databases and OS": ["NoSQL", "MySQL", "MongoDB","PostgreSQL", "Oracle DB","Windows","MacOS"],
 							"Data Analysis and Computer Vision": ["Pandas", "Tableau ", "NumPy", "Spark","Jupyter", "Computer Vision", "Data mining", "Data cleaning","Data modeling & warehousing","Machine Learning"],
-							"Tools": [ "VSCode", "Visual Studio", "Anaconda",  "GitHub", "PyTorch", "Microsoft Office(Word, Excel, PowerPoint, Access, Outlook)", "Figma" ],
+							// "Tools": [ "VSCode", "Visual Studio", "Anaconda",  "GitHub", "PyTorch", "Microsoft Office(Word, Excel, PowerPoint, Access, Outlook)", "Figma" ],
 						};
 
 						for (const category in additionalSkills) {
@@ -1318,7 +1318,47 @@
 				</script>
 			</div>
 		</div>
+		<div class="section" id="achieve">
+			<h2 class="center_text">ACHIEVEMENTS</h2>
+			<div class="achieve-content">
+				<script>
+					const acheivementItems = [
+						{
+							"title": "Best Outgoing Girl Student",
+							"description": "Recognized as the Best Outgoing Student in my Bachelor's program at [University Name], honoring my commitment and contributions to extracurricular activities, including dance and sports, while maintaining strong academic performance."
+						},
+						{
+							"title": "Best Employee Award",
+							"description": "Honored with the Best Employee Award for exemplary contributions to the team during the COVID-19 pandemic, demonstrating resilience and dedication when it was needed most. Recognized for outstanding performance and received appreciation from clients for my efforts."
+						},
+						{
+							"title": "Best Team Idea",
+							"description": "Contributed a winning team idea at the TCS Intern Summit aimed at enhancing employee work experience. This initiative focused on improving workplace engagement and productivity through innovative strategies."
+						}
+					];
 
+					const achieveContent = document.createElement('div');
+					achieveContent.classList.add('achieve-content');
+
+					acheivementItems.forEach(item => {
+						const acheivementItem = document.createElement('div');
+						acheivementItem.classList.add('achieve-item');
+
+						const h3 = document.createElement('h3');
+						h3.textContent = item.title;
+						acheivementItem.appendChild(h3);
+
+						const p = document.createElement('p');
+						p.textContent = item.description;
+						acheivementItem.appendChild(p);
+
+						acheivementItems.appendChild(acheivementItem);
+					});
+
+					document.getElementById('achieve').appendChild(achieveContent);
+				</script>
+			</div>
+		</div>
 
 	</div>
 
