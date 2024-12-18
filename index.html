@@ -1388,15 +1388,15 @@
 					<script>
 						const skills = [
 							{
-								"title": "Programming Languages",
+								"title": <strong> "Programming Languages"</strong> ,
 								"items": [" C#", ".Net", "C", "Java", "Python", "Data Structures", "C++", "Rest API"]
 							},
 							{
-								"title": "Web Technologies",
+								"title": <strong> "Web Technologies"</strong> ,
 								"items": ["JavaScript", "Angular", "ReactJS", "Vue", "jQuery", "TypeScript", "NodeJS", "CSS3", "HTML5"]
 							},
 							{
-								"title": "Cloud Technologies and Libraries",
+								"title": <strong> "Cloud Technologies and Libraries"</strong> ,
 								"items": ["Docker", "Kubernetes", "AWS", "Microsoft Azure", "ML", "Devops"]
 							}
 						];
@@ -1425,7 +1425,7 @@
 							const skillCell = document.createElement('div');
 							skillCell.classList.add('skill-cell');
 							const p = document.createElement('p');
-							p.textContent = `${category}: ${skills.join(', ')}`;
+							p.textContent = `<strong>${category}</strong>: ${skills.join(', ')}`;
 							skillCell.appendChild(p);
 							document.querySelector('.skill-column:last-child').appendChild(skillCell);
 						}
@@ -1441,7 +1441,7 @@
 					const achieveItems = [
 						{
 							"title": "Best Outgoing Girl Student",
-							"description": "Recognized as the Best Outgoing Student in my Bachelor's program at [University Name], honoring my commitment and contributions to extracurricular activities, including dance and sports, while maintaining strong academic performance."
+							"description": "Recognized as the Best Outgoing Student in my Bachelor's program at VNR VJIET, honoring my commitment and contributions to extracurricular activities, including dance and sports, while maintaining strong academic performance."
 						},
 						{
 							"title": "Best Employee Award",
@@ -1449,7 +1449,7 @@
 						},
 						{
 							"title": "Best Team Idea",
-							"description": "Contributed a winning team idea at the TCS Intern Summit aimed at enhancing employee work experience. This initiative focused on improving workplace engagement and productivity through innovative strategies."
+							"description": "Contributed a winning team idea at the CBOE Intern Summit aimed at enhancing employee work experience. This initiative focused on improving workplace engagement and productivity through innovative strategies."
 						}
 					];
 
