@@ -1388,15 +1388,15 @@
 					<script>
 						const skills = [
 							{
-								"title": <strong> "Programming Languages"</strong> ,
+								"title": "Programming Languages",
 								"items": [" C#", ".Net", "C", "Java", "Python", "Data Structures", "C++", "Rest API"]
 							},
 							{
-								"title": <strong> "Web Technologies"</strong> ,
+								"title": "Web Technologies",
 								"items": ["JavaScript", "Angular", "ReactJS", "Vue", "jQuery", "TypeScript", "NodeJS", "CSS3", "HTML5"]
 							},
 							{
-								"title": <strong> "Cloud Technologies and Libraries"</strong> ,
+								"title": "Cloud Technologies and Libraries",
 								"items": ["Docker", "Kubernetes", "AWS", "Microsoft Azure", "ML", "Devops"]
 							}
 						];
@@ -1425,7 +1425,7 @@
 							const skillCell = document.createElement('div');
 							skillCell.classList.add('skill-cell');
 							const p = document.createElement('p');
-							p.textContent = `<strong>${category}</strong>: ${skills.join(', ')}`;
+							p.textContent = `${category}: ${skills.join(', ')}`;
 							skillCell.appendChild(p);
 							document.querySelector('.skill-column:last-child').appendChild(skillCell);
 						}
